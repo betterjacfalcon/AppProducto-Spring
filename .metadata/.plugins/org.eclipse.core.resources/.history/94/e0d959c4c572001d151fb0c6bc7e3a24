@@ -1,0 +1,162 @@
+package com.product.categoria.entities;
+
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "products")
+public class Product {
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="price")
+	private double price;
+	
+	@Column(name="quantity")
+	private int quantity;
+	
+	@Column(name="marca")
+	private String marca;
+	
+	@Column(name="modelo")
+	private int modelo;
+	
+	@Column(name="talla")
+	private int talla;
+	
+	@Column(name="largo")
+	private int largo;
+	
+	@Column(name="sexo")
+	private String sexo;
+	
+	@Column(name="color")
+	private String color;
+	
+	@Column(name="precio_venta")
+	private Double precioVenta;
+	
+	@Column(name="moneda")
+	private String moneda;
+	
+	
+	
+	@OneToOne
+	@JoinColumn(name="category_id", referencedColumnName="id", unique=true)
+	
+	private Categories categories;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setCategories(Categories categories) {
+		this.categories = categories;
+	}
+	
+	public Categories getCategories() {
+		return categories;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public int getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(int modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getTalla() {
+		return talla;
+	}
+
+	public void setTalla(int talla) {
+		this.talla = talla;
+	}
+	
+	public int getLargo() {
+		return largo;
+	}
+
+	public void setLargo(int largo) {
+		this.largo = largo;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	
+}

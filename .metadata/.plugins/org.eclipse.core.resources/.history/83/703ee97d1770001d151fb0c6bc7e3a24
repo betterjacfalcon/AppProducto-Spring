@@ -1,0 +1,21 @@
+package com.product.categoria.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.product.categoria.entities.Users;
+import com.product.categoria.repositories.UserRepository;
+
+
+@Service
+public class UsersService {
+	
+	@Autowired
+	private UserRepository repository;	
+	
+	public Users createUsers(Users users) {		
+		return repository.save(users);
+	}
+	
+
+}

@@ -1,0 +1,5 @@
+package com.product.categoria.entities;
+
+public class Product {
+
+}

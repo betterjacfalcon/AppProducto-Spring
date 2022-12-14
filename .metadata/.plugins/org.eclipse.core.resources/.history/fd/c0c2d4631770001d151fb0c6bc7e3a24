@@ -1,0 +1,31 @@
+package com.product.categoria.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.github.javafaker.Faker;
+import com.product.categoria.entities.Users;
+import com.product.categoria.models.User;
+import com.product.categoria.repositories.UserRepository;
+
+import jakarta.annotation.PostConstruct;
+
+import org.springframework.web.server.ResponseStatusException;
+
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private UserRepository repository;	
+	
+	public Users createUsers(Users users) {		
+		return repository.save(users);
+	}
+	
+
+}

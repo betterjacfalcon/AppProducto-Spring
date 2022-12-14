@@ -1,0 +1,36 @@
+package com.product.categoria.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.product.categoria.entities.Users;
+import com.product.categoria.services.UsersService;
+
+@RestController
+@RequestMapping("/users")
+public class UsersController {
+	
+	@Autowired
+	private UsersService usersService;
+	
+	@PostMapping
+	public ResponseEntity<Users> createUser(@RequestBody Users users){
+		
+		return new ResponseEntity<Users>(usersService.createUser(users), HttpStatus.CREATED);
+	}	
+	
+	@PutMapping("/{usersId}")
+	public ResponseEntity<Users> updateUser(@PathVariable("usersId") Integer usersId, @RequestBody Users users){
+		
+		return new ResponseEntity<Users>(usersService.updateUser(usersId, users), HttpStatus.OK);
+	}
+	
+	
+}

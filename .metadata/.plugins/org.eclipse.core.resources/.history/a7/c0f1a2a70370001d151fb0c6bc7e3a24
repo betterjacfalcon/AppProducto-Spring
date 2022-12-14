@@ -1,0 +1,6 @@
+package com.product.categoria.entities;
+
+@Entity
+public class User {
+
+}

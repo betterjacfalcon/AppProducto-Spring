@@ -1,0 +1,18 @@
+package com.product.categoria.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.product.categoria.entities.Categories;
+import com.product.categoria.repositories.CategoryRepository;
+
+@Service
+public class CategoryService {
+	@Autowired
+	private CategoryRepository repository;	
+	
+	public Categories createCategories(Categories categories) {		
+		return repository.save(categories);
+	}
+
+}

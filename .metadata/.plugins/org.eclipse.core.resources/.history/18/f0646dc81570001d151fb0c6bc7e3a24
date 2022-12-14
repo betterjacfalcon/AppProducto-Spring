@@ -1,0 +1,67 @@
+package com.product.categoria.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.github.javafaker.Faker;
+import com.product.categoria.entities.Users;
+import com.product.categoria.models.User;
+
+import jakarta.annotation.PostConstruct;
+
+import org.springframework.web.server.ResponseStatusException;
+
+
+@Service
+public class UserService {
+	@Autowired
+	private Faker faker;
+	
+	private List<User> users = new ArrayList<>();
+	
+	@PostConstruct
+	public void init() {
+		for(int i=0; i < 10; i++) {
+		users.add(new User(faker.name().firstName(), faker.name().username(), faker.name().lastName()));
+		}
+	}
+	
+	public List<User> gerUsers(){
+		return users;
+	}
+	public User getUserByUserName(String userName) {
+		return users.stream().filter(u -> u.getUserName().equals(userName)).findAny()
+		.orElseThrow(()-> new ResponseStatusException(HttpStatus.RESET_CONTENT, 
+				String.format("User %s not found", userName)));
+	}
+	 
+	public User createUser(User user) {
+
+		if (users.stream().anyMatch(u -> u.getUserName().equals(user.getUserName()))){
+			throw new ResponseStatusException(HttpStatus.CONFLICT, String.format("User %s already exists", user.getUserName()));
+		}
+		users.add(user);
+		return user;
+	}
+	
+	public Users createUsers(Users users) {		
+		return repository.save(users);
+	}
+	
+	public User updateUser(User user, String userName) {
+		User userToBeUpdated =  getUserByUserName(userName);
+		userToBeUpdated.setNickName(user.getNickName());
+		userToBeUpdated.setPassword(user.getPassword());
+
+		return userToBeUpdated;
+	}
+
+	public void deleteUser(String userName) {
+		User userByUserName = getUserByUserName(userName);
+		users.remove(userByUserName);
+	}
+}

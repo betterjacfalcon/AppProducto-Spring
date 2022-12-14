@@ -1,0 +1,10 @@
+package com.product.categoria.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RequestMapping("/categories/{categoryId}/products")
+@RestController
+public class ProductController {
+
+}

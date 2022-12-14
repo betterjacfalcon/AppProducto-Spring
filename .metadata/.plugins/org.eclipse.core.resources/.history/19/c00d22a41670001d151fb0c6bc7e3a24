@@ -1,0 +1,33 @@
+package com.product.categoria;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.github.javafaker.Faker;
+import com.product.categoria.entities.Users;
+import com.product.categoria.repositories.UserRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@SpringBootApplication
+public class ProductAppApplication{
+	
+	private static final Logger log = LoggerFactory.getLogger(ProductAppApplication.class);
+	
+	@Autowired
+	private Faker faker;
+	
+	@Autowired
+	private UserRepository repository;
+	
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProductAppApplication.class, args);
+	}
+
+
+}

@@ -1,0 +1,26 @@
+package com.product.categoria;
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@SpringBootApplication
+public class ProductAppApplication implements ApplicationRunner{
+	
+	private static final Logger log = LoggerFactory.getLogger(ProductAppApplication.class);
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProductAppApplication.class, args);
+	}
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

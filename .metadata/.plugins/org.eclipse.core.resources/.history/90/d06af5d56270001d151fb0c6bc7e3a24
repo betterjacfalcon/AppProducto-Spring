@@ -1,0 +1,22 @@
+package com.product.categoria.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.product.categoria.services.ProductoService;
+
+@RequestMapping("/categories/{categoryId}/products")
+@RestController
+public class ProductController {
+
+	@Autowired
+	private ProductoService productService;
+	
+	@PostMapping
+	public ResponseEntity<Product> create(@PathVariable("categoryId") Integer userId, @RequestBody Product product){
+		return new ResponseEntity<Product>(productService.create(categoryId,  product), HttpStatus.CREATED);
+		
+	}
+}

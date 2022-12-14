@@ -1,0 +1,9 @@
+package com.product.categoria.entities;
+
+public class Product {
+	  private String nombre;
+	  private double precioUnit;
+	  private int cantStock;
+	  private boolean disponible = false;
+	  Category category;
+}

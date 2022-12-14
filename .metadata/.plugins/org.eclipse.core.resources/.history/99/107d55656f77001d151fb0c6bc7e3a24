@@ -1,0 +1,11 @@
+package com.product.categoria.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "currencies")
+public class Currency {
+	
+
+}

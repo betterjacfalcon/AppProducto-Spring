@@ -1,0 +1,25 @@
+package com.product.categoria.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+import jakarta.persistence.Id;
+
+@Entity
+@Table(name = "products")
+public class Product {
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	private String descripcion;
+	private double priceUnit;
+	private int cantStock;
+	private boolean disponible = false;
+	Category category;
+}

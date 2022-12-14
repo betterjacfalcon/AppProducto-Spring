@@ -1,0 +1,31 @@
+package com.product.categoria.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.github.javafaker.Faker;
+import com.product.categoria.models.User;
+
+import jakarta.annotation.PostConstruct;
+
+@Service
+public class UserService {
+	@Autowired
+	private Faker faker;
+	
+	private List<User> users = new ArrayList<>();
+	
+	@PostConstruct
+	public void init() {
+		for(int i=0; i < 10; i++) {
+		users.add(new User(faker.name().firstName(), faker.name().username(), faker.name().lastName()));
+		}
+	}
+	
+	public List<User> gerUsers(){
+		return users;
+	}
+}

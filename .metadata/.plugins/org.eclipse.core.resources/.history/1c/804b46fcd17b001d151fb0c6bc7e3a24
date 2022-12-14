@@ -1,0 +1,18 @@
+package com.product.categoria.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.product.categoria.repositories.ProductDetailRepository;
+import com.product.categoria.repositories.ProductRepository;
+
+@Service
+public class ProductDetailService {
+	
+	@Autowired
+	private ProductRepository productoRepository;
+	
+	@Autowired
+	private ProductDetailRepository productoDetailRepository;
+
+}

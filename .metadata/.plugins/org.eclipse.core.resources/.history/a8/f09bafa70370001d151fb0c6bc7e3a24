@@ -1,0 +1,8 @@
+package com.product.categoria.entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Users {
+
+}

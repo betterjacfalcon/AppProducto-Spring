@@ -1,0 +1,4 @@
+server.port=8086
+spring.datasource.url=jdbc:postgresql://localhost:5432/cure_illness?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+spring.datasource.username=postgres
+spring.datasource.password=admin
